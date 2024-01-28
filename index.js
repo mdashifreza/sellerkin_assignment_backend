@@ -36,8 +36,8 @@ app.post('/api/subscribe', async (req, res) => {
         const data = await apiInstance.sendTransacEmail({
             sender,
             to : receivers,
-            subject : "Test Email Using Brevo APIs ",
-            textContent : "Test Email",
+            subject : "Test Email Using Brevo APIs and Thanks for Subscribing",
+            textContent : "Thanks for Subscribing",
         });
         res.status(200).json({ message: 'Subscription successful' });
     } catch (error) {
