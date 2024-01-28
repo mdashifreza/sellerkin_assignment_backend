@@ -5,7 +5,8 @@ const SibApiV3Sdk = require('sib-api-v3-sdk');
 const cors = require('cors');
 const app = express();
 app.use(cors());
-const port = 3001;
+require("dotenv").config();
+const port = process.env.PORT || 3001;
 
 //middleware
 app.use(bodyParser.json());
@@ -13,7 +14,7 @@ app.use(bodyParser.json());
 // Configure & API key
 const defaultClient = SibApiV3Sdk.ApiClient.instance;
 const apiKey = defaultClient.authentications['api-key'];
-apiKey.apiKey = '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';
+apiKey.apiKey = process.env.API_KEY;
 
 // Initialize API instance
 const apiInstance = new SibApiV3Sdk.TransactionalEmailsApi();
@@ -28,7 +29,8 @@ app.post('/api/subscribe', async (req, res) => {
     }
 
     const receivers = [{
-        email :  req.body.email
+        email : email,
+        name : name,
     }]
 
     try {
