@@ -1,4 +1,3 @@
-// server.js
 const express = require('express');
 const bodyParser = require('body-parser');
 const SibApiV3Sdk = require('sib-api-v3-sdk');
@@ -49,7 +48,7 @@ app.post('/api/subscribe', async (req, res) => {
 app.get("/", (req, res)=>{
     res.json({endpoint : "https://sellerkin-assignment-backend.vercel.app/"})
 });
-// Start the server
+//server
 app.listen(port, () => {
     console.log(`Server is running on port ${port}`);
 });
