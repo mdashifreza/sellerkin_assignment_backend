@@ -44,6 +44,9 @@ app.post('/api/subscribe', async (req, res) => {
         res.status(500).json({ error: 'Internal Server Error' });
     }
 });
+app.get("/", (req, res)=>{
+    res.json({endpoint : "https://sellerkin-assignment-backend.vercel.app/"})
+});
 // Start the server
 app.listen(port, () => {
     console.log(`Server is running on port ${port}`);
